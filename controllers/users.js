@@ -27,6 +27,7 @@ exports.getUser = (req, res) => {
   console.log(uuid);
   User.findOne({
     where: { uuid },
+    include: ["posts"],
   })
     .then((user) => {
       res.json(user);
